@@ -9,7 +9,7 @@ Make sure you have Python 3.x installed on your system.
 You also need to install the required Python packages. You can do this by running:
 
 ```sh
-pip install -r [requirements.txt],
+pip install -r requirements.txt,
 
 edit max_threads=100/200/500/1000 line 13
 ```
