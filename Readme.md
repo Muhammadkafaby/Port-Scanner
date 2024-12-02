@@ -6,6 +6,12 @@ This program is used to scan open ports on a host.
 
 Make sure you have Python 3.x installed on your system.
 
+You also need to install the required Python packages. You can do this by running:
+
+```sh
+pip install -r [requirements.txt]
+```
+
 ## How to Run
 
 1. Clone this repository (https://github.com/Muhammadkafaby/Port-Scanner.git) or download the `port_scanner.py` file.

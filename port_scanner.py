@@ -1,8 +1,9 @@
 import socket
+from tqdm import tqdm
 
 def scan_ports(host, port_range):
     open_ports = []
-    for port in port_range:
+    for port in tqdm(port_range, desc="Scanning ports"):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(1)
         result = sock.connect_ex((host, port))
