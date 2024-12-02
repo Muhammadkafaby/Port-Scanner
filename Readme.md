@@ -8,7 +8,7 @@ Make sure you have Python 3.x installed on your system.
 
 ## How to Run
 
-1. Clone this repository or download the `port_scanner.py` file.
+1. Clone this repository (https://github.com/Muhammadkafaby/Port-Scanner.git) or download the `port_scanner.py` file.
 2. Open a terminal or command prompt.
 3. Navigate to the directory where the `port_scanner.py` file is located.
 4. Run the following command:
