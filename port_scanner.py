@@ -1,15 +1,21 @@
 import socket
 from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor
 
-def scan_ports(host, port_range):
+def scan_port(host, port, open_ports):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(1)
+    result = sock.connect_ex((host, port))
+    if result == 0:
+        open_ports.append(port)
+    sock.close()
+
+def scan_ports(host, port_range, max_threads=100):
     open_ports = []
-    for port in tqdm(port_range, desc="Scanning ports"):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(1)
-        result = sock.connect_ex((host, port))
-        if result == 0:
-            open_ports.append(port)
-        sock.close()
+    with ThreadPoolExecutor(max_workers=max_threads) as executor:
+        futures = [executor.submit(scan_port, host, port, open_ports) for port in port_range]
+        for future in tqdm(futures, desc="Scanning ports"):
+            future.result()  # Wait for each future to complete
     return open_ports
 
 if __name__ == "__main__":
