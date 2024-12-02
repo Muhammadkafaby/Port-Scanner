@@ -13,6 +13,15 @@ def scan_ports(host, port_range):
 
 if __name__ == "__main__":
     target_host = input("Enter the host to scan: ")
+    if target_host.startswith("http://"):
+        target_host = target_host[7:]
+    elif target_host.startswith("https://"):
+        target_host = target_host[8:]
+    
+    # Remove trailing slash if present
+    if target_host.endswith("/"):
+        target_host = target_host[:-1]
+    
     start_port = int(input("Enter the start port: "))
     end_port = int(input("Enter the end port: "))
     
