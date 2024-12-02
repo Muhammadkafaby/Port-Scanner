@@ -33,9 +33,11 @@ The program will scan the ports in the specified range and display the open port
 ## Example
 
 ```sh
-Enter the host to scan: example.com
+Enter the host to scan: www.example.com
 Enter the start port: 1
 Enter the end port: 1024
-Scanning example.com from port 1 to 1024...
+Enter the number of threads (default 100): 200
+Enter the timeout in seconds (default 1): 0.5
+Scanning www.example.com from port 1 to 1024 with 200 threads and 0.5 seconds timeout...
 Open ports: [80, 443]
 ```
